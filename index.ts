@@ -1,3 +1,13 @@
+type RequestType = {
+  method: string;
+  host: string;
+  path: string;
+  body?: User;
+  params?: {
+      [key: string]: string;
+  }
+}
+
 type ObserverHandlers = {
     next: (value: RequestType) => void;
     error: (error: Error) => void;
@@ -95,7 +105,6 @@ type User =  {
     isDeleated: boolean;
 }
 
-
 const userMock: User = {
     name: 'User Name',
     age: 26,
@@ -106,16 +115,6 @@ const userMock: User = {
     createdAt: new Date(),
     isDeleated: false,
 };
-
-type RequestType = {
-    method: string;
-    host: string;
-    path: string;
-    body?: User;
-    params?: {
-        [key: string]: string;
-    }
-}
 
 const requestsMock: RequestType[] = [
     {
